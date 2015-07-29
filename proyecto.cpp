@@ -34,5 +34,37 @@ cout<<"Opcion Invalida"<<endl;
 break;
 }
 }while(r!=true);
+
+ifstream horario("C:/BC5/BIN/horario.txt");
+if(!horario)
+{
+ofstream horario("C:/BC5/BIN/horario.txt");
+}
+else
+{
+ofstream horario("C:/BC5/BIN/horario.txt");
+horario.close ();
+
+time_t t1;
+struct tm * tm ;
+char  fecha[100] ,hora[100],horah[100];
+
+int n, horario, opc
+
+do
+{
+t=time(NULL);
+tm=localtime(&t1);
+strftime(fecha,100,"FECHA: %d	%m	%Y",tm);
+strftime(hora,100,"HORA: %H:%M:%S",tm;);
+strftime(horah,100,"%Hh%M",tm);
+cout<<"%s	",fecha);
+cout<<"%s	",nota);
+
+cout<<op;
+}
+while(op==0)
+}
 getch();
 }
+
