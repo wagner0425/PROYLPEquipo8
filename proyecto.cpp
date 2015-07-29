@@ -5,7 +5,99 @@
 #include <fstream>
 #include <time>
 
+char mat[20], set[20], sem[20], hoi[20], hof[20];
+time_t t;
+struct tm *tm;
+int n, horario, opc;
 
+void ingreso(void)
+{
+     char ver;
+     char hor_tem[5], min_tem[5];
+     int hor_ent1, min_ent1;
+     int hor_ent2, min_ent2;
+
+     clrscr();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ do
+     {
+     		cout << "\t Hora de inicio 00H00 : "; cin >> hoi;
+         hor_tem[0]=hoi[0];
+         hor_tem[1]=hoi[1];
+         hor_tem[2]='\0';
+         hor_ent1 = atoi(hor_tem);
+         min_tem[0]=hoi[3];
+         min_tem[1]=hoi[4];
+         min_tem[2]='\0';
+         min_ent1 = atoi(min_tem);
+     } while (hor_ent1 > 23 || min_ent1 > 59 || hoi[2]!='H');
+
+     do
+     {
+        do
+        {
+            cout << "\t Hora de Final 00H00 : "; cin >> hof;
+            hor_tem[0]=hof[0];
+            hor_tem[1]=hof[1];
+            hor_tem[2]='\0';
+            hor_ent2 = atoi(hor_tem);
+            min_tem[0]=hof[3];
+            min_tem[1]=hof[4];
+            min_tem[2]='\0';
+            min_ent2 = atoi(min_tem);
+        } while (hor_ent2 > 23 || min_ent2 > 59 || hof[2]!='H');
+
+        if ((hor_ent2 == hor_ent1 && min_ent2 > min_ent1) || hor_ent2 > hor_ent1)
+        {
+          ver = 's';
+        }
+        else
+        {
+          cout << "\t Hora no permitida " << endl;
+          ver = 'n';
+        }
+     } while (ver == 'n');
+
+
+
+
+
+
+
+
+
+
+main()
+{
 char op;
 
    t = time(NULL);
@@ -44,36 +136,6 @@ char op;
       }
    } while(op!='4');
 
-ifstream horario("C:/BC5/BIN/horario.txt");
-if(!horario)
-{
-ofstream horario("C:/BC5/BIN/horario.txt");
-}
-else
-{
-ofstream horario("C:/BC5/BIN/horario.txt");
-horario.close ();
-
-time_t t1;
-struct tm * tm ;
-char  fecha[100] ,hora[100],horah[100];
-
-int n, horario, opc
-
-do
-{
-t=time(NULL);
-tm=localtime(&t1);
-strftime(fecha,100,"FECHA: %d	%m	%Y",tm);
-strftime(hora,100,"HORA: %H:%M:%S",tm;);
-strftime(horah,100,"%Hh%M",tm);
-cout<<"%s	",fecha);
-cout<<"%s	",nota);
-
-cout<<op;
-}
-while(op==0)
-}
 getch();
 }
 

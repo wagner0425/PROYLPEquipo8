@@ -1,45 +1,48 @@
-<<<<<<< HEAD
-#include<math>
-#include<conio>
-#include<iostream>
-
-=======
 #include <iostream>
 #include <stdlib>
 #include <conio>
 #include <stdio>
-main()
-{
-bool r=false;
-char a;
-do
-{
-cout<<"\t\t\t\tMENU PRINCIPAL\a"<<endl;
-cout<<"\t1.- Ingresar una nueva hora de clases"<<endl;
-cout<<"\t2.- Ver el horario de hoy"<<endl;
-cout<<"\t3.- Ver el horario de la semana"<<endl;
-cout<<"\t4.- Salir"<<endl;
-cout<<"Elija una opcion"<<endl;
-cin>>a;
-switch(a)
-{
-case '1':
-cout<<"Entraste en Ingresar una nueva hora de clases"<<endl;
-break;
-case '2':
-cout<<"Entraste en Ver el horario de hoy"<<endl;
-break;
-case '3':
-cout<<"Entraste en Ver el horario de la semana"<<endl;
-break;
-case '4':
-r=true;
-break;
-default:
-cout<<"Opcion Invalida"<<endl;
-break;
-}
-}while(r!=true);
+#include <fstream>
+#include <time>
+
+
+char op;
+
+   t = time(NULL);
+
+   do
+   {
+      clrscr();
+      cout << "\t\t\t\t MENU PRINCIPAL\a" << endl;
+      cout << "\t 1.- Ingresar una nueva hora de clases" << endl;
+      cout << "\t 2.- Ver el horario de hoy" << endl;
+      cout << "\t 3.- Ver el horario de la semana" << endl;
+      cout << "\t 4.- Salir" << endl;
+      cout << "\t Elija una opcion " ;
+      cin >> op;
+      switch(op)
+      {
+          case '1':
+            ingreso();
+          break;
+
+          case '2':
+          	horario_hoy();
+          break;
+
+          case '3':
+          	horario_semana();
+          break;
+
+          case '4':
+              cout<<"Gracias por utilizar nuestro programa"<<endl;
+          break;
+
+          default:
+             cout<<"Opcion Invalida\a"<<endl;
+          break;
+      }
+   } while(op!='4');
 
 ifstream horario("C:/BC5/BIN/horario.txt");
 if(!horario)
@@ -73,5 +76,5 @@ while(op==0)
 }
 getch();
 }
->>>>>>> origin/master
+
 
