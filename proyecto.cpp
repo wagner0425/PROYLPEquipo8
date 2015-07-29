@@ -19,36 +19,29 @@ void ingreso(void)
 
      clrscr();
 
+     cout << "\t 1.- Ingreso de Nueva Horario de clases" << endl;
+     do
+     {
+        cout << "\t Nombre de la materia : "; gets(mat);
+     } while (strcmp(mat,"")==0);
+     do
+     {
+     	  cout << "\t Nombre del semestre  : "; gets(set);
+     } while (strcmp(set,"")==0);
+     do
+     {
+     		cout << "\t Dia de la semana     : "; cin >> sem;
+         if (strcmp(sem,"LUN")==0 ||
+             strcmp(sem,"MAR")==0 ||
+             strcmp(sem,"MIE")==0 ||
+             strcmp(sem,"JUE")==0 ||
+             strcmp(sem,"VIE")==0 )
+             ver = 's';
+         else
+         	 ver = 'n';
+     } while (ver == 'n');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- do
+   do
      {
      		cout << "\t Hora de inicio 00H00 : "; cin >> hoi;
          hor_tem[0]=hoi[0];
@@ -87,16 +80,94 @@ void ingreso(void)
         }
      } while (ver == 'n');
 
+ ifstream horario("horario.txt",ios::in);
+
+     if(!horario)  //preguntamos si esta creado
+     {
+   	  ofstream horario("horario.txt");
+        horario << mat << endl;
+        horario << set << endl;
+        horario << sem << endl;
+        horario << hoi << endl;
+        horario << hof << endl;
+     }
+     else
+     {
+   	 ofstream horario("horario.txt",ios::app);
+       horario << mat << endl;
+       horario << set << endl;
+       horario << sem << endl;
+       horario << hoi << endl;
+       horario << hof << endl;
+     }
+     horario.close();
+}
+
+void horario_hoy(void)
+{
+     char dia[20];
+
+     clrscr();
+     cout << "\t 2.- Ver Horario de Hoy " << endl;
+
+     ifstream horario("horario.txt",ios::in);
+     while(!horario.eof())
+     {
+        horario.getline(mat,20);
+        horario.getline(set,20);
+        horario.getline(sem,20);
+        horario.getline(hoi,20);
+        horario.getline(hof,20);
+
+        tm = localtime(&t);
+        strftime(dia,20,"%a",tm);
+
+        if ( (strcmp(sem,"LUN")==0 && strcmp(dia,"Mon")==0) ||
+        		 (strcmp(sem,"MAR")==0 && strcmp(dia,"Tue")==0) ||
+             (strcmp(sem,"MIE")==0 && strcmp(dia,"Wed")==0) ||
+             (strcmp(sem,"JUE")==0 && strcmp(dia,"Thr")==0) ||
+             (strcmp(sem,"VIE")==0 && strcmp(dia,"Fri")==0) )
+        {
+
+           cout << "\t Nombre de la materia : " << mat << endl;
+           cout << "\t Nombre del semestre  : " << set << endl;
+           cout << "\t Dia de la semana     : " << sem << endl;
+           cout << "\t Hora de inicio       : " << hoi << endl;
+           cout << "\t Hora de fin          : " << hof << endl;
+           cout << endl;
+        }
+     }
+     horario.close();
+     getch();
+}
+
+void horario_semana(void)
+{
+     clrscr();
+     cout << "\t 3.- Ver Horario Semana " << endl;
+     ifstream horario("horario.txt",ios::in);
+     while(!horario.eof())
+     {
+        horario.getline(mat,20);
+        horario.getline(set,20);
+        horario.getline(sem,20);
+        horario.getline(hoi,20);
+        horario.getline(hof,20);
+        cout << "\t Nombre de la materia : " << mat << endl;
+        cout << "\t Nombre del semestre  : " << set << endl;
+        cout << "\t Dia de la semana     : " << sem << endl;
+        cout << "\t Hora de inicio       : " << hoi << endl;
+        cout << "\t Hora de fin          : " << hof << endl;
+        cout << endl;
+     }
+     horario.close();
+     getch();
+}
 
 
 
 
-
-
-
-
-
-main()
+ main()
 {
 char op;
 
